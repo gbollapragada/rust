@@ -1,0 +1,5 @@
+[package]
+name = "strings-sample"
+version = "0.1.0"
+authors = ["Ganesh Bollapragada <ganesha.b@gmail.com>"]
+edition = "2018" 
