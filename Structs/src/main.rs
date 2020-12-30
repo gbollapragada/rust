@@ -7,6 +7,9 @@
 mod address_two;
 use address_two::*;
 
+mod counter;
+use counter::*;
+
 #[derive(Debug)]
 struct PersonData {
     name: String,
@@ -27,11 +30,13 @@ struct PersonData {
 
 impl PersonData {
     fn is_member(&self) -> bool {
-        if self.is_member == true {
-            true
-        } else {
-            false
-        }
+        self.is_member // return
+                       /*
+                       if self.is_member == true {
+                           true
+                       } else {
+                           false
+                       }*/
     }
 }
 
@@ -111,4 +116,20 @@ fn main() {
     );
 
     println!("Address2 is {:#?}", address_two);
+
+    let mut my_counter: Counter = Counter::new();
+
+    for _ in 0..10 {
+        my_counter.increment();
+        println!("Counter reached {}", my_counter.counter);
+    }
+
+    println!("Counter is bigger than 5 : {}", my_counter.is_bigger(5));
+}
+
+// decorating with more functionality / augmenting with is_bigger
+impl Counter {
+    pub fn is_bigger(&self, compare_to: u8) -> bool {
+        self.counter > compare_to // if and return
+    }
 }
